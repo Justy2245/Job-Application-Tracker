@@ -5,7 +5,8 @@ CREATE TABLE application (
     title VARCHAR(255) NOT NULL,
     company VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
-    picturelink varchar(255),
-    extrainfo varchar(MAX),
-    date_applied TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    status VARCHAR(255) NOT NULL,
+    picturelink VARCHAR(255),
+    extrainfo TEXT,
+    date_applied DATE DEFAULT CURRENT_DATE
 );
