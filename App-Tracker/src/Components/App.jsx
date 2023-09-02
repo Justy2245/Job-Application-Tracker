@@ -16,6 +16,19 @@ function App() {
         }
     };
 
+  const deleteApp = async event => {
+    event.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/apps', {
+        method: 'DELETE',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify(apps)
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
   useEffect(() => {
         getApps();
     }, []);
@@ -39,6 +52,7 @@ function App() {
             <h4>{apps.status}</h4>
             <h4>{apps.extrainfo}</h4>
             <h4>{apps.date_applied}</h4>
+            <button type="button" onClick = {event => deleteApp(event)}>Delete</button>
           </section>
         ))}
       </div>
