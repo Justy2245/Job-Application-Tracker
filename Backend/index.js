@@ -17,7 +17,7 @@ app.get('/apps', async(req, res) => {
         console.log("GET");
         const getApps = await pool.query('SELECT * FROM application ORDER BY title');
         res.json(getApps.rows);
-        console.log("Retrieved");
+        console.log(getApps.rows);
         } catch (error) {
         console.error(error.message);
     }

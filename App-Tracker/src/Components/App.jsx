@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
+import Input from "./Input";
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
     <>
       <div className='header'>
         <h1>Job Application Tracker</h1>
+        <div className='buttons'>
+          <Input apps/>
+        </div>
         <input type="text" Test/>
         <button>Search</button>
       </div>
