@@ -11,6 +11,20 @@ app.use(express.json());
 
 //Routes
 
+//add new application
+app.post('/apps', async (req, res) => {
+    try {
+        console.log("POST");
+        const {title, company, location, date} = req.body;
+        const newApp = await pool.query (
+            'INSERT INTO application (title, company, location, date) VALUES($1, $2, $3, $4) RETURNING *', [title, company, location, date]
+        )
+        res.json(newApp.rows[0]);
+    } catch (error) {
+        console.log(error.message);
+    }
+});
+
 //get all applications
 app.get('/apps', async(req, res) => {
     try {
