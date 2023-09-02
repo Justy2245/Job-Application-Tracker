@@ -31,7 +31,7 @@ app.post('/apps', async (req, res) => {
 app.get('/apps', async(req, res) => {
     try {
         console.log("GET");
-        const getApps = await pool.query('SELECT title, company, location, status, extrainfo, date_applied FROM application ORDER BY title');
+        const getApps = await pool.query('SELECT jobapp_id, title, company, location, status, extrainfo, date_applied FROM application ORDER BY title');
         res.json(getApps.rows);
         console.log(getApps.rows);
         } catch (error) {
@@ -40,12 +40,12 @@ app.get('/apps', async(req, res) => {
 });
 
 //delete application
-app.delete('/apps', async(req, res) => {
+app.delete('/apps/:jobapp_id', async(req, res) => {
     try {
         console.log('DELETE');
-        const { jobapp_id } = req.body;
+        const { jobapp_id } = req.params;
         console.log(jobapp_id);
-        /*const deleteApps = await pool.query('DELETE FROM application WHERE jobapp_id = $1', [jobapp_id]);*/
+        const deleteApps = await pool.query('DELETE FROM application WHERE jobapp_id = $1', [jobapp_id]);
         res.json('Deleted Application')
     } catch (error) {
         console.error(error.message);

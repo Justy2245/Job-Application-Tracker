@@ -16,14 +16,14 @@ function App() {
         }
     };
 
-  const deleteApp = async event => {
-    event.preventDefault();
+  const deleteApp = async (id) => {
     try {
-      const response = await fetch('http://localhost:5000/apps', {
+        const response = await fetch(`http://localhost:5000/apps/${id}`, {
         method: 'DELETE',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify(apps)
       });
+    window.location ='/';
     } catch (error) {
       console.error(error.message);
     }
@@ -52,7 +52,7 @@ function App() {
             <h4>{apps.status}</h4>
             <h4>{apps.extrainfo}</h4>
             <h4>{apps.date_applied}</h4>
-            <button type="button" onClick = {event => deleteApp(event)}>Delete</button>
+            <button onClick = {() => deleteApp(apps.jobapp_id)}>Delete</button>
           </section>
         ))}
       </div>
