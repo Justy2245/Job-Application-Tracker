@@ -26,10 +26,15 @@ function App() {
         <input type="text" Test/>
         <button>Search</button>
       </div>
-      <div>
+      <div className = 'body'>
         {apps.map(apps => (
           <section key = {apps.jobapp_id}>
             <h4>{apps.title}</h4>
+            <h4>{apps.company}</h4>
+            <h4>{apps.location}</h4>
+            <h4>{apps.status}</h4>
+            <h4>{apps.extrainfo}</h4>
+            <h4>{apps.date_applied}</h4>
           </section>
         ))}
       </div>

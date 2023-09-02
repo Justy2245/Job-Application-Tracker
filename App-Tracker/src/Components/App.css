@@ -1,3 +1,24 @@
 .header {
   text-align: center;
 }
+
+.body {
+    width: fit-content;
+    margin: 1rem auto;
+    padding: 50px 50px 50px 50px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    color: white;
+    background: grey;
+    border-radius: 1rem;
+}
+
+.body section {
+  background: #2a475e;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  width: 20rem;
+  height: 22rem;
+  text-align: center;
+}
