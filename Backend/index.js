@@ -3,6 +3,9 @@ const cors = require('cors');
 const pool = require('./database.js')
 const app = express();
 
+//localhost:5000 for database access
+//http://localhost:5173 for react app
+
 app.use(cors());
 app.use(express.json());
 
