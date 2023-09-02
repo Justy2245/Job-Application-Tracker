@@ -15,10 +15,12 @@ app.use(express.json());
 app.get('/apps', async(req, res) => {
     try {
         console.log("GET");
-        const getApps = await pool.query('SELECT * FROM application ORDER BY name');
+        const getApps = await pool.query('SELECT * FROM application ORDER BY title');
         res.json(getApps.rows);
         console.log("Retrieved");
         } catch (error) {
         console.error(error.message);
     }
 });
+
+app.listen(5000);
