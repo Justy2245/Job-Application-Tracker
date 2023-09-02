@@ -31,10 +31,10 @@ const Input = ({ app }) => {
                     <h4 className="modal-title">Add New Application</h4>
                 </div>
                 <form className="modal-body">
-                    <input type="text" className="form-control" placeholder ='Enter Job Title' name = 'title' onChange ={event => setApps({...app, [event.target.name]: event.target.value})}/>
-                    <input type="text" className="form-control mt-2 mb-2" placeholder ='Enter Company Name' name = 'company' onChange ={event => setApps({...app, [event.target.name]: event.target.value})}/>
-                    <input type="text" className="form-control" placeholder ='Enter Location' name = 'location' onChange ={event => setApps({...app, [event.target.name]: event.target.value})}/>
-                    <input type="text" className="form-control mt-2 mb-2" placeholder ='Enter Date Applied' name = 'date_applied' onChange ={event => setApps({...app, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control" placeholder ='Enter Job Title' name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control mt-2 mb-2" placeholder ='Enter Company Name' name = 'company' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control" placeholder ='Enter Location' name = 'location' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control mt-2 mb-2" placeholder ='Enter Date Applied' name = 'date_applied' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                 </form>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-warning" data-bs-dismiss="modal" onClick = {event => addApp(event)}>

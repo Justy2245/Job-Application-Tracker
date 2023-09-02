@@ -15,9 +15,11 @@ app.use(express.json());
 app.post('/apps', async (req, res) => {
     try {
         console.log("POST");
-        const {title, company, location, date} = req.body;
+        console.log(req.body);
+        const {title, company, location, date_applied} = req.body;
+        const status = "Applied";
         const newApp = await pool.query (
-            'INSERT INTO application (title, company, location, date) VALUES($1, $2, $3, $4) RETURNING *', [title, company, location, date]
+            'INSERT INTO application (title, company, location, date_applied, status) VALUES($1, $2, $3, $4, $5) RETURNING *', [title, company, location, date_applied, status]
         )
         res.json(newApp.rows[0]);
     } catch (error) {
@@ -29,7 +31,7 @@ app.post('/apps', async (req, res) => {
 app.get('/apps', async(req, res) => {
     try {
         console.log("GET");
-        const getApps = await pool.query('SELECT * FROM application ORDER BY title');
+        const getApps = await pool.query('SELECT title, company, location, status, extrainfo, date_applied FROM application ORDER BY title');
         res.json(getApps.rows);
         console.log(getApps.rows);
         } catch (error) {
