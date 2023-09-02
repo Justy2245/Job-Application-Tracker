@@ -29,6 +29,11 @@ function App() {
     }
   }
 
+  const fixDate = (date) => {
+    date = date.slice(0, 10);
+    return date;
+  }
+
   useEffect(() => {
         getApps();
     }, []);
@@ -49,9 +54,8 @@ function App() {
             <h4>{apps.title}</h4>
             <h4>{apps.company}</h4>
             <h4>{apps.location}</h4>
-            <h4>{apps.status}</h4>
+            <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
             <h4>{apps.extrainfo}</h4>
-            <h4>{apps.date_applied}</h4>
             <button onClick = {() => deleteApp(apps.jobapp_id)}>Delete</button>
           </section>
         ))}

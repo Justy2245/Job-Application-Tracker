@@ -6,20 +6,20 @@
     width: fit-content;
     margin: 1rem auto;
     padding: 50px 50px 50px 50px;
-    display: grid;
+    display: flex;
     gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
+    flex-direction: column;
     color: white;
-    background: grey;
+    background: rgb(172, 166, 166);
     border-radius: 1rem;
 }
 
 .body section {
-  background: #2a475e;
+  background: #094575;
   border-radius: 1rem;
   padding: 1rem 2rem;
-  width: 20rem;
-  height: 22rem;
+  width: 80rem;
+  height: 16rem;
   text-align: center;
 }
 
