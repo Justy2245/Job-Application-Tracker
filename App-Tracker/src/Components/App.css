@@ -5,6 +5,7 @@
 
 .body {
     width: fit-content;
+    min-height: 100vh;
     margin: 1rem auto auto;
     padding: 50px 50px 50px 50px;
     display: flex;
@@ -20,7 +21,7 @@
   border-radius: 1rem;
   padding: 1rem 2rem;
   width: 80rem;
-  height: 16rem;
+  height: auto;
   text-align: center;
 }
 
