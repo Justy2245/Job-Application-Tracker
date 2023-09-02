@@ -14,9 +14,11 @@ app.use(express.json());
 //get all applications
 app.get('/apps', async(req, res) => {
     try {
+        console.log("GET");
         const getApps = await pool.query('SELECT * FROM application ORDER BY name');
         res.json(getApps.rows);
-    } catch (error) {
+        console.log("Retrieved");
+        } catch (error) {
         console.error(error.message);
     }
 });
