@@ -6,6 +6,7 @@ function App() {
 
   const [apps, setApps] = useState([]);
 
+  //get all applications
   const getApps = async () => {
         try {
             const data = await fetch('http://localhost:5000/apps');
@@ -16,6 +17,7 @@ function App() {
         }
     };
 
+  //delete application based on jobapp_id
   const deleteApp = async (id) => {
     try {
         const response = await fetch(`http://localhost:5000/apps/${id}`, {
@@ -29,11 +31,13 @@ function App() {
     }
   }
 
+  //fix the formatting of date, since the date has a timestamp after the date
   const fixDate = (date) => {
     date = date.slice(0, 10);
     return date;
   }
 
+  //triggers on refresh
   useEffect(() => {
         getApps();
     }, []);

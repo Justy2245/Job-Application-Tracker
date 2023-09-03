@@ -3,6 +3,7 @@ import React, {useState} from "react";
 const Input = ({ app }) => {
     const [apps, setApps] = useState(app);
 
+    //Add new application to database
     const addApp = async event => {
         event.preventDefault();
         try {
@@ -17,6 +18,7 @@ const Input = ({ app }) => {
         }
     };
 
+    //text fields in modal update whenevever there is a change and stores it in a key value pair
     return (
         <>
         <div>
