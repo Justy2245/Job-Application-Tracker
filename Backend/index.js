@@ -27,7 +27,7 @@ app.post('/apps', async (req, res) => {
     }
 });
 
-//get all applications
+//get all applications sorted by alphabetically by title
 app.get('/apps', async(req, res) => {
     try {
         console.log("GET");

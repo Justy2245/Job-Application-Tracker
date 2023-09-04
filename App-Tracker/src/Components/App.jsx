@@ -37,18 +37,20 @@ function App() {
         <div className='buttons'>
           <Input apps/>
         </div>
-        <input type="text" Test/>
+        <input type='text' Test/>
         <button>Search</button>
       </div>
       <div className = 'body'>
         {apps.map(apps => (
           <section key = {apps.jobapp_id}>
-            <h4>{apps.title}</h4>
-            <h4>{apps.company}</h4>
-            <h4>{apps.location}</h4>
-            <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-            <h4>{apps.extrainfo}</h4>
-            <Delete app = {apps}/>
+            <h4 type='button' data-bs-toggle='collapse' data-bs-target={`#${apps.jobapp_id}`}>{apps.title}</h4>
+            <div h4 className = 'collapse' id = {`${apps.jobapp_id}`}>
+              <h4>{apps.company}</h4>
+              <h4>{apps.location}</h4>
+              <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
+              <h4>{apps.extrainfo}</h4>
+              <Delete app = {apps}/>
+            </div>
           </section>
         ))}
       </div>
