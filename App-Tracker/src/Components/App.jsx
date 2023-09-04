@@ -47,11 +47,11 @@ function App() {
               <h4>{apps.title}</h4>
               <h4 className='symbol'></h4>
             </div>
-            <div h4 className = 'collapse' id = {`${apps.jobapp_id}`}>
+            <div h4 className = 'collapse content' id = {`${apps.jobapp_id}`}>
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-              <h4>{apps.extrainfo}</h4>
+              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`}></textarea>
               <Delete app = {apps}/>
             </div>
           </section>

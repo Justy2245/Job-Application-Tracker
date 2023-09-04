@@ -38,3 +38,14 @@
 .symbol:after {
   content: '\002b';
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content button {
+  width: 6%;
+  left: 50%;
+}
