@@ -28,3 +28,13 @@
 .buttons {
   margin-bottom: 10px;
 }
+
+.label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.symbol:after {
+  content: '\002b';
+}

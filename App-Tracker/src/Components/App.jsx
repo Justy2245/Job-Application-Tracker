@@ -43,7 +43,10 @@ function App() {
       <div className = 'body'>
         {apps.map(apps => (
           <section key = {apps.jobapp_id}>
-            <h4 type='button' data-bs-toggle='collapse' data-bs-target={`#${apps.jobapp_id}`}>{apps.title}</h4>
+            <div className ='label'type='button' data-bs-toggle='collapse' data-bs-target={`#${apps.jobapp_id}`}>
+              <h4>{apps.title}</h4>
+              <h4 className='symbol'></h4>
+            </div>
             <div h4 className = 'collapse' id = {`${apps.jobapp_id}`}>
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
