@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Input from "./Input";
+import Delete from './Delete';
 
 function App() {
 
@@ -17,19 +18,6 @@ function App() {
         }
     };
 
-  //delete application based on jobapp_id
-  const deleteApp = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:5000/apps/${id}`, {
-        method: 'DELETE',
-        headers: {'Content-type': 'application/json'},
-        body: JSON.stringify(apps)
-      });
-    window.location ='/';
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
 
   //fix the formatting of date, since the date has a timestamp after the date
   const fixDate = (date) => {
@@ -60,7 +48,7 @@ function App() {
             <h4>{apps.location}</h4>
             <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
             <h4>{apps.extrainfo}</h4>
-            <button onClick = {() => deleteApp(apps.jobapp_id)}>Delete</button>
+            <Delete app = {apps}/>
           </section>
         ))}
       </div>
