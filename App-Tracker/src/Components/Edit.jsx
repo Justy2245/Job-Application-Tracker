@@ -18,7 +18,7 @@ const Edit = ({ app }) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(apps)
             });
-        window.location('/');
+        window.location = '/';
         } catch (error) {
             console.error(error.message);
         }
