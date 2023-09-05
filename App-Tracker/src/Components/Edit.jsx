@@ -42,6 +42,7 @@ const Edit = ({ app }) => {
                     <input type="text" className="form-control" value ={`${apps.title}`} name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                     <input type="text" className="form-control mt-2 mb-2" value ={`${apps.company}`} name = 'company' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                     <input type="text" className="form-control" value ={`${apps.location}`} name = 'location' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control mt-2 mb-2" value = {fixDate(apps.status)} name = 'status' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                     <input type="text" className="form-control mt-2 mb-2" value = {fixDate(apps.date_applied)} name = 'date_applied' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                 </form>
                 <div className="modal-footer">
