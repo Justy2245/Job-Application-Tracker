@@ -13,12 +13,12 @@ const Edit = ({ app }) => {
     const editApp = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/apps/${id}`, {
+            const response = await fetch(`http://localhost:5000/apps`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(apps)
             });
-        window.location = '/';
+        window.location('/');
         } catch (error) {
             console.error(error.message);
         }
