@@ -46,6 +46,6 @@
 }
 
 .content button {
-  width: 6%;
+  width: fit-content;
   left: 50%;
 }

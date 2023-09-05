@@ -52,4 +52,12 @@ app.delete('/apps/:jobapp_id', async(req, res) => {
     }
 });
 
+app.put('apps/:jobapp_id', async(req, res) => {
+    try {
+        console.log(req.body);
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
 app.listen(5000);

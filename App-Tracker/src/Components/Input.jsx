@@ -22,12 +22,12 @@ const Input = ({ app }) => {
     return (
         <>
         <div>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target='#mainModal'>
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target='#inputModal'>
                 Add New App
             </button>
         </div>
 
-        <div className="modal" id ='mainModal'>
+        <div className="modal" id ='inputModal'>
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">

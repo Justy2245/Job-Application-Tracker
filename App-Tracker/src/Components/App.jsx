@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Input from "./Input";
 import Delete from './Delete';
+import Edit from './Edit';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
               <textarea cols="50" rows="6" value = {`${apps.extrainfo}`}></textarea>
               <Delete app = {apps}/>
+              <Edit app = {apps}/>
             </div>
           </section>
         ))}
