@@ -26,6 +26,18 @@ function App() {
     return date;
   }
 
+  const updateText = (event, index) => {
+    const array = apps.map((data, index1) => {
+      if(index === index1) {
+        return {...data, [event.target.name]: event.target.value};
+      }
+      else {
+        return data;
+      }
+    })
+    setApps(array);
+  }
+
   //triggers on refresh
   useEffect(() => {
         getApps();
@@ -42,7 +54,7 @@ function App() {
         <button>Search</button>
       </div>
       <div className = 'body'>
-        {apps.map(apps => (
+        {apps.map((apps, index) => (
           <section key = {apps.jobapp_id}>
             <div className ='label'type='button' data-bs-toggle='collapse' data-bs-target={`#${apps.jobapp_id}`}>
               <h4>{apps.title}</h4>
@@ -52,7 +64,7 @@ function App() {
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`}></textarea>
+              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index)}></textarea>
               <Delete app = {apps}/>
               <Edit app = {apps}/>
             </div>
