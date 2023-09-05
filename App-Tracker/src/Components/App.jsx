@@ -10,15 +10,14 @@ function App() {
 
   //get all applications
   const getApps = async () => {
-        try {
-            const data = await fetch('http://localhost:5000/apps');
-            const json = await data.json();
-            setApps(json);
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-
+    try {
+        const data = await fetch('http://localhost:5000/apps');
+        const json = await data.json();
+        setApps(json);
+    } catch (error) {
+        console.log(error.message);
+    }
+  };
 
   //fix the formatting of date, since the date has a timestamp after the date
   const fixDate = (date) => {
@@ -34,7 +33,7 @@ function App() {
       else {
         return data;
       }
-    })
+    });
     setApps(array);
   }
 
