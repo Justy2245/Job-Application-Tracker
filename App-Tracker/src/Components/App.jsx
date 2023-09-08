@@ -37,10 +37,12 @@ function App() {
       }
     });
     setApps(array);
-    updateTextPut(index, jobapp_id, array);
+    //pass array since apps doesn't update in time
+    updateTextPut(index, array);
   }
 
-  const updateTextPut = async (index, jobapp_id, array) => {
+  //update database with new text in text field
+  const updateTextPut = async (index, array) => {
     try {
         const response = await fetch(`http://localhost:5000/apps`, {
             method: 'PUT',
@@ -78,7 +80,7 @@ function App() {
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
+              <textarea className ='mb-1' cols='50' rows='6' value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
               <Delete app = {apps}/>
               <Edit app = {apps}/>
             </div>
