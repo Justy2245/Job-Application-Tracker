@@ -37,15 +37,15 @@ function App() {
       }
     });
     setApps(array);
-    updateTextPut(event, jobapp_id);
+    updateTextPut(index, jobapp_id, array);
   }
 
-  const updateTextPut = async (event, jobapp_id) => {
+  const updateTextPut = async (index, jobapp_id, array) => {
     try {
-        const response = await fetch(`http://localhost:5000/apps${jobapp_id}`, {
+        const response = await fetch(`http://localhost:5000/apps`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(apps)
+            body: JSON.stringify(array[index])
         });
     } catch (error) {
           console.error(error.message);

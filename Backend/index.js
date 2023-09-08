@@ -69,15 +69,5 @@ app.put('/apps', async(req, res) => {
     }
 });
 
-//update text box
-app.put('/apps:jobapp_id', async(req, res) => {
-    try {
-        console.log('PUT text box')
-        const { jobapp_id } = req.params;
-    } catch (error) {
-        console.error(error.message);
-    }
-});
-
 //listen on port 5000
 app.listen(5000);
