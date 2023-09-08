@@ -26,7 +26,7 @@ function App() {
   }
 
   //update text in text field
-  const updateText = (event, index) => {
+  const updateText = (event, index, jobapp_id) => {
     //since in map it expects an array to be returned when setting state
     const array = apps.map((data, index1) => {
       if(index === index1) {
@@ -37,6 +37,19 @@ function App() {
       }
     });
     setApps(array);
+    updateTextPut(event, jobapp_id);
+  }
+
+  const updateTextPut = async (event, jobapp_id) => {
+    try {
+        const response = await fetch(`http://localhost:5000/apps${jobapp_id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(event.target.value)
+        });
+    } catch (error) {
+          console.error(error.message);
+    }
   }
 
   //triggers on refresh
@@ -65,7 +78,7 @@ function App() {
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index)}></textarea>
+              <textarea cols="50" rows="6" value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
               <Delete app = {apps}/>
               <Edit app = {apps}/>
             </div>
