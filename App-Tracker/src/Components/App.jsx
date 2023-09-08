@@ -25,7 +25,9 @@ function App() {
     return date;
   }
 
+  //update text in text field
   const updateText = (event, index) => {
+    //since in map it expects an array to be returned when setting state
     const array = apps.map((data, index1) => {
       if(index === index1) {
         return {...data, [event.target.name]: event.target.value};

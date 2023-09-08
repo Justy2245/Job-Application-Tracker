@@ -10,6 +10,7 @@ const Edit = ({ app }) => {
         return date;
     };
 
+    //edit application data via PUT request
     const editApp = async (event) => {
         event.preventDefault();
         try {
@@ -24,6 +25,7 @@ const Edit = ({ app }) => {
         }
     }
 
+    //using modal to edit application similar look to adding applications
     return (
         <>
         <div>

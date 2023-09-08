@@ -6,7 +6,9 @@ const app = express();
 //localhost:5000 for database access
 //http://localhost:5173 for react app
 
+//cors to let one domain access resources in a seperate domain
 app.use(cors());
+//express used for routing
 app.use(express.json());
 
 //Routes
@@ -15,7 +17,6 @@ app.use(express.json());
 app.post('/apps', async (req, res) => {
     try {
         console.log("POST");
-        console.log(req.body);
         const {title, company, location, date_applied} = req.body;
         const status = "Applied";
         const newApp = await pool.query (
@@ -39,7 +40,7 @@ app.get('/apps', async(req, res) => {
     }
 });
 
-//delete application
+//delete application based on jobapp_id
 app.delete('/apps/:jobapp_id', async(req, res) => {
     try {
         console.log('DELETE');
@@ -52,7 +53,7 @@ app.delete('/apps/:jobapp_id', async(req, res) => {
     }
 });
 
-//update application
+//update application based on jobapp_id
 app.put('/apps', async(req, res) => {
     try {
         console.log('PUT');
@@ -67,4 +68,5 @@ app.put('/apps', async(req, res) => {
     }
 });
 
+//listen on port 5000
 app.listen(5000);

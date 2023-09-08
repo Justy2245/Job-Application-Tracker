@@ -1,3 +1,4 @@
+//pg is a library to connect to postgreSQL client
 const Pool = require('pg').Pool;
 
 //login used on local machine to access database
