@@ -4,10 +4,10 @@ const Delete = ({ app }) => {
     const deleteApp = async (id) => {
         try {
             const response = await fetch(`http://localhost:5000/apps/${id}`, {
-            method: 'DELETE',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(app)
-        });
+                method: 'DELETE',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify(app)
+            });
         window.location = '/';
         } catch (error) {
             console.error(error.message);

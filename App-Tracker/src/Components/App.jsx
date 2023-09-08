@@ -45,7 +45,7 @@ function App() {
         const response = await fetch(`http://localhost:5000/apps${jobapp_id}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(event.target.value)
+            body: JSON.stringify(apps)
         });
     } catch (error) {
           console.error(error.message);
