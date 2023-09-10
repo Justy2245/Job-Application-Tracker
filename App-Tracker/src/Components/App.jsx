@@ -92,6 +92,7 @@ function App() {
         <div className='buttons'>
           <Input apps/>
           <button className = 'btn btn-primary' onClick ={() => getAppsDate()}>Sort by date</button>
+          <button className = 'btn btn-primary' onClick ={() => getApps()}>Sort by title</button>
         </div>
         <input type='text' Test/>
         <button>Search</button>

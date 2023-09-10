@@ -19,6 +19,7 @@ const Edit = ({ app, setApp }) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(apps)
             });
+        //update state via function call
         setApp(apps);
         } catch (error) {
             console.error(error.message);

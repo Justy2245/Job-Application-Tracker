@@ -59,7 +59,6 @@ app.delete('/apps/:jobapp_id', async(req, res) => {
     try {
         console.log('DELETE');
         const { jobapp_id } = req.params;
-        console.log(jobapp_id);
         const deleteApps = await pool.query('DELETE FROM application WHERE jobapp_id = $1', [jobapp_id]);
         res.json('Deleted Application')
     } catch (error) {
@@ -71,7 +70,6 @@ app.delete('/apps/:jobapp_id', async(req, res) => {
 app.put('/apps', async(req, res) => {
     try {
         console.log('PUT');
-         console.log(req.body);
         const { jobapp_id, title, company, location, status, extrainfo, date_applied } = req.body;
         const editApps = await pool.query(
             'UPDATE application SET title = $1, company = $2, location = $3, status = $4, extrainfo = $5, date_applied = $6 WHERE jobapp_id = $7',
