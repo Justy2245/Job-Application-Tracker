@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Edit = ({ app }) => {
+const Edit = ({ app, setApp }) => {
     
     const [apps, setApps] = useState(app);
 
@@ -19,7 +19,7 @@ const Edit = ({ app }) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(apps)
             });
-        window.location = "/";
+        setApp(apps);
         } catch (error) {
             console.error(error.message);
         }

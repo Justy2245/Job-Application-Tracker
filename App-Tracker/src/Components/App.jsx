@@ -66,6 +66,20 @@ function App() {
     }
   }
 
+  //update state from other components
+  const handleState = (app) => {
+    const array = apps.map((data) => {
+      if(data.jobapp_id === app.jobapp_id) {
+        return {...data, ['title']: app.title, ['company']: app.company, 
+                         ['location']: app.location, ['status']: app.status};
+      }
+      else {
+        return data;
+      }
+    });
+    setApps(array);
+  }
+
   //triggers on refresh
   useEffect(() => {
         getApps();
@@ -95,7 +109,7 @@ function App() {
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
               <textarea className ='mb-1' cols='50' rows='6' value = {`${apps.extrainfo}`} name = 'extrainfo' placeholder='Enter text here' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
               <Delete app = {apps}/>
-              <Edit app = {apps}/>
+              <Edit app = {apps} setApp = {handleState}/>
             </div>
           </section>
         ))}
