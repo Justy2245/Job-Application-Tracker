@@ -20,7 +20,7 @@ app.post('/apps', async (req, res) => {
         const {title, company, location, date_applied} = req.body;
         const status = "Applied";
         const newApp = await pool.query (
-            'INSERT INTO application (title, company, location, date_applied, status) VALUES($1, $2, $3, $4, $5) RETURNING *', [title, company, location, date_applied, status]
+            'INSERT INTO application (title, company, location, date_applied, status, extrainfo) VALUES($1, $2, $3, $4, $5, $6) RETURNING *', [title, company, location, date_applied, status, ""]
         )
         res.json('Application Added');
     } catch (error) {
@@ -28,11 +28,25 @@ app.post('/apps', async (req, res) => {
     }
 });
 
-//get all applications sorted by alphabetically by title
+//get all applications sorted alphabetically by title
 app.get('/apps', async(req, res) => {
     try {
         console.log("GET");
+        console.log("Alpha");
         const getApps = await pool.query('SELECT jobapp_id, title, company, location, status, extrainfo, date_applied FROM application ORDER BY title');
+        res.json(getApps.rows);
+        console.log(getApps.rows);
+        } catch (error) {
+        console.error(error.message);
+    }
+});
+
+//get all applications sorted by date
+app.get('/apps/date', async(req, res) => {
+    try {
+        console.log("GET");
+        console.log("Date");
+        const getApps = await pool.query('SELECT jobapp_id, title, company, location, status, extrainfo, date_applied FROM application ORDER BY date_applied DESC');
         res.json(getApps.rows);
         console.log(getApps.rows);
         } catch (error) {

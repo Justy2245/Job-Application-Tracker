@@ -19,6 +19,17 @@ function App() {
     }
   };
 
+  //get all applications
+  const getAppsDate = async () => {
+    try {
+        const data = await fetch('http://localhost:5000/apps/date');
+        const json = await data.json();
+        setApps(json);
+    } catch (error) {
+        console.log(error.message);
+    }
+  };
+
   //fix the formatting of date, since the date has a timestamp after the date
   const fixDate = (date) => {
     date = date.slice(0, 10);
@@ -65,6 +76,7 @@ function App() {
         <h1>Job Application Tracker</h1>
         <div className='buttons'>
           <Input apps/>
+          <button className = 'btn btn-primary' onClick ={() => getAppsDate()}>Sort by date</button>
         </div>
         <input type='text' Test/>
         <button>Search</button>
@@ -80,7 +92,7 @@ function App() {
               <h4>{apps.company}</h4>
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
-              <textarea className ='mb-1' cols='50' rows='6' value = {`${apps.extrainfo}`} name = 'extrainfo' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
+              <textarea className ='mb-1' cols='50' rows='6' value = {`${apps.extrainfo}`} name = 'extrainfo' placeholder='Enter text here' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
               <Delete app = {apps}/>
               <Edit app = {apps}/>
             </div>
