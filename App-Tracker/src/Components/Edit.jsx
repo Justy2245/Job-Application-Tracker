@@ -19,7 +19,7 @@ const Edit = ({ app }) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(apps)
             });
-        window.location = '/';
+        window.location = "/";
         } catch (error) {
             console.error(error.message);
         }
@@ -29,21 +29,21 @@ const Edit = ({ app }) => {
     return (
         <>
         <div>
-            <button type="button" data-bs-toggle="modal" data-bs-target='#editModal'>
+            <button type="button" data-bs-toggle="modal" data-bs-target={`#id${apps.jobapp_id}`}>
                 Edit
             </button>
         </div>
 
-        <div className="modal" id ='editModal'>
+        <div className="modal" id ={`id${apps.jobapp_id}`}>
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
                     <h4 className="modal-title">Edit Application</h4>
                 </div>
                 <form className="modal-body">
-                    <input type="text" className="form-control" value ={`${apps.title}`} name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
-                    <input type="text" className="form-control mt-2 mb-2" value ={`${apps.company}`} name = 'company' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
-                    <input type="text" className="form-control" value ={`${apps.location}`} name = 'location' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control" value ={apps.title} name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control mt-2 mb-2" value ={apps.company} name = 'company' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
+                    <input type="text" className="form-control" value ={apps.location} name = 'location' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                     <input type="text" className="form-control mt-2 mb-2" value = {fixDate(apps.status)} name = 'status' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                     <input type="text" className="form-control mt-2 mb-2" value = {fixDate(apps.date_applied)} name = 'date_applied' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
                 </form>

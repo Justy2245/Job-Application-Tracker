@@ -31,6 +31,7 @@ function App() {
   };
 
   //fix the formatting of date, since the date has a timestamp after the date
+  //date when retrieved from databse is in the format: yyyy-mm-ddT07:00:00.000Z
   const fixDate = (date) => {
     date = date.slice(0, 10);
     return date;
