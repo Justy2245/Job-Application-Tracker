@@ -99,10 +99,12 @@ function App() {
       {
         searchValue = search.filter((search) => search.company.toLowerCase().includes(event.target.value.slice(8, event.target.value.size).toLowerCase()));
       }
+      //filters list by location if "location:" is present
       else if(event.target.value.slice(0, 9).toLowerCase() === 'location:')
       {
         searchValue = search.filter((search) => search.location.toLowerCase().includes(event.target.value.slice(9, event.target.value.size).toLowerCase()));
       }
+      //filters by title by default
       else
       {
         searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
