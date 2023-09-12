@@ -80,6 +80,16 @@ function App() {
     setApps(array);
   }
 
+  //Search for application by title
+  const searchApp = (event) => {
+    if(event.target.value === "")
+    {
+      getApps();
+    }
+    var searchValue = apps.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
+    setApps(searchValue);
+  }
+
   //triggers on refresh
   useEffect(() => {
         getApps();
@@ -94,8 +104,8 @@ function App() {
           <button className = 'btn btn-primary' onClick ={() => getAppsDate()}>Sort by date</button>
           <button className = 'btn btn-primary' onClick ={() => getApps()}>Sort by title</button>
         </div>
-        <input type='text' Test/>
-        <button>Search</button>
+        <h4>Number of applications: {`${apps.length}`}</h4>
+        <input type='text' placeholder='Search' onChange = {event => searchApp(event)}/>
       </div>
       <div className = 'body'>
         {apps.map((apps, index) => (
