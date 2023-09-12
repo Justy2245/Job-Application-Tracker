@@ -28,6 +28,7 @@ function App() {
         const data = await fetch('http://localhost:5000/apps/date');
         const json = await data.json();
         setApps(json);
+        setSearch(json);
     } catch (error) {
         console.log(error.message);
     }
@@ -88,7 +89,7 @@ function App() {
     //resets list if search bar is empty
     if(event.target.value === "")
     {
-      getApps();
+      getAppsDate();
     }
     //filters current list by title
     var searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
@@ -97,7 +98,7 @@ function App() {
 
   //triggers on refresh
   useEffect(() => {
-        getApps();
+        getAppsDate();
     }, []);
 
   return (
