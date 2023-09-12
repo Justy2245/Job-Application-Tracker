@@ -9,7 +9,7 @@ function App() {
   const [apps, setApps] = useState([]);
   const [search, setSearch] = useState([]);
 
-  //get all applications
+  //get all applications sorted by title
   const getApps = async () => {
     try {
         const data = await fetch('http://localhost:5000/apps');
@@ -22,7 +22,7 @@ function App() {
     }
   };
 
-  //get all applications
+  //get all applications sorted by date
   const getAppsDate = async () => {
     try {
         const data = await fetch('http://localhost:5000/apps/date');

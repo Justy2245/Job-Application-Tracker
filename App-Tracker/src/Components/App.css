@@ -54,3 +54,7 @@
   width: fit-content;
   left: 50%;
 }
+
+.modal-title {
+  color: black;
+}

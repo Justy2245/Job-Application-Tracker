@@ -23,7 +23,7 @@ const Input = ({ app }) => {
         <>
         <div>
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target='#inputModal'>
-                Add New App
+                Add New Application
             </button>
         </div>
 
@@ -31,7 +31,7 @@ const Input = ({ app }) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title">Add New Application</h4>
+                    <h5 className="modal-title">Add New Application</h5>
                 </div>
                 <form className="modal-body">
                     <input type="text" className="form-control" placeholder ='Enter Job Title' name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>

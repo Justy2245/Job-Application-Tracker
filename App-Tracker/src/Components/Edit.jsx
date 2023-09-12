@@ -39,7 +39,7 @@ const Edit = ({ app, setApp }) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title">Edit Application</h4>
+                    <h5 className="modal-title">Edit Application</h5>
                 </div>
                 <form className="modal-body">
                     <input type="text" className="form-control" value ={apps.title} name = 'title' onChange ={event => setApps({...apps, [event.target.name]: event.target.value})}/>
