@@ -91,9 +91,24 @@ function App() {
     {
       getAppsDate();
     }
-    //filters current list by title
-    var searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
-    setApps(searchValue);
+    else
+    {
+      var searchValue;
+      //filters list by company if "company:" is present
+      if(event.target.value.slice(0, 8).toLowerCase() === 'company:')
+      {
+        searchValue = search.filter((search) => search.company.toLowerCase().includes(event.target.value.slice(8, event.target.value.size).toLowerCase()));
+      }
+      else if(event.target.value.slice(0, 9).toLowerCase() === 'location:')
+      {
+        searchValue = search.filter((search) => search.location.toLowerCase().includes(event.target.value.slice(9, event.target.value.size).toLowerCase()));
+      }
+      else
+      {
+        searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
+      }
+      setApps(searchValue);
+    }
   }
 
   //triggers on refresh
