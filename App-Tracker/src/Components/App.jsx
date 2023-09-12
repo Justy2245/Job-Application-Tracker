@@ -15,6 +15,7 @@ function App() {
         const data = await fetch('http://localhost:5000/apps');
         const json = await data.json();
         setApps(json);
+        //used in searchApps function
         setSearch(json);
     } catch (error) {
         console.log(error.message);
@@ -123,8 +124,8 @@ function App() {
               <h4>{apps.location}</h4>
               <h4>{apps.status} on {fixDate(apps.date_applied)}</h4>
               <textarea className ='mb-1' cols='50' rows='6' value = {`${apps.extrainfo}`} name = 'extrainfo' placeholder='Enter text here' onChange ={event => updateText(event, index, apps.jobapp_id)}></textarea>
-              <Delete app = {apps}/>
               <Edit app = {apps} setApp = {handleState}/>
+              <Delete app = {apps}/>
             </div>
           </section>
         ))}
