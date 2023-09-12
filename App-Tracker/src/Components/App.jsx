@@ -7,6 +7,7 @@ import Edit from './Edit';
 function App() {
 
   const [apps, setApps] = useState([]);
+  const [search, setSearch] = useState([]);
 
   //get all applications
   const getApps = async () => {
@@ -14,6 +15,7 @@ function App() {
         const data = await fetch('http://localhost:5000/apps');
         const json = await data.json();
         setApps(json);
+        setSearch(json);
     } catch (error) {
         console.log(error.message);
     }
@@ -81,12 +83,14 @@ function App() {
   }
 
   //Search for application by title
-  const searchApp = (event) => {
+  const searchApp = async (event) => {
+    //resets list if search bar is empty
     if(event.target.value === "")
     {
       getApps();
     }
-    var searchValue = apps.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
+    //filters current list by title
+    var searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));
     setApps(searchValue);
   }
 
