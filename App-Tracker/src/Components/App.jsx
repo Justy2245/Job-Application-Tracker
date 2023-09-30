@@ -6,7 +6,9 @@ import Edit from './Edit';
 
 function App() {
 
+  //setApps to store state of database
   const [apps, setApps] = useState([]);
+  //setSearch to store state for searching
   const [search, setSearch] = useState([]);
 
   //get all applications sorted by title
@@ -73,6 +75,7 @@ function App() {
   //update state from other components
   const handleState = (app) => {
     const array = apps.map((data) => {
+      //find application to update by id
       if(data.jobapp_id === app.jobapp_id) {
         return {...data, ['title']: app.title, ['company']: app.company, 
                          ['location']: app.location, ['status']: app.status};
@@ -104,7 +107,7 @@ function App() {
       {
         searchValue = search.filter((search) => search.location.toLowerCase().includes(event.target.value.slice(9, event.target.value.size).toLowerCase()));
       }
-      //filters by title by default
+      //filters list by title by default
       else
       {
         searchValue = search.filter((search) => search.title.toLowerCase().includes(event.target.value.toLowerCase()));

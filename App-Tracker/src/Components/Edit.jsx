@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+//setApp field is the handlestate function from App.jsx that was passed in
 const Edit = ({ app, setApp }) => {
     
     const [apps, setApps] = useState(app);

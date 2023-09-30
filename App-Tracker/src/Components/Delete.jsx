@@ -2,6 +2,7 @@ const Delete = ({ app }) => {
 
     //delete application based on jobapp_id
     const deleteApp = async (id) => {
+        //show confirm box when clicking the delete button
         const confirmDelete = window.confirm('Do you want to delete');
         if(confirmDelete === true)
         {
